@@ -1,29 +1,31 @@
 angular.module("app").controller("myCtrl", function($scope) {
   $scope.test = "this is a test"
   $scope.diary = diary
-  $scope.addPost= function(blog){
-      $scope.diary.push(blog)
-        $scope.makeNewPost = false;
-        $scope.newPost= {}
-      console.log(blog)
+  $scope.count = 0
+  $scope.addPost = function(blog) {
+    $scope.diary[$scope.count] = blog
+    $scope.count ++
+    $scope.makeNewPost = false
+    $scope.newPost = {}
+    console.log(blog)
   }
 })
 
 let diary = [
   {
     posts:
-      "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+      "See dat scope",
     entry_date: "03/08/2017",
     title:
-      "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.",
+      "Look, I made it overwrite the original lorum ipsum",
     img_url: "http://dummyimage.com/228x239.jpg/dddddd/000000"
   },
   {
     posts:
-      "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+      "Your 2nd post will delete me",
     entry_date: "12/12/2016",
     title:
-      "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
+      "I'm next!",
     img_url: "http://dummyimage.com/224x245.bmp/cc0000/ffffff"
   },
   {
