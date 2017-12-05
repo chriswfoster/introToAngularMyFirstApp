@@ -8,15 +8,43 @@
 </head>
 
 <body ng-controller="myCtrl">
+    <nav>
+        <input placeholder="search by title" ng-model="input.title" />
+        <input placeholder="search by Posts" ng-model="input.posts" />
+<!-- ng-model is binding the value of whatever the user types onto the scope, based upon whatever the user types.
 
-  {{test}}
+-->
+      </nav>
+
+<button type="button" name="button"
+ng-click="makeNewPost = !makeNewPost">Make new post</button>
+
+<div ng-show="makeNewPost">
+  <input placeholder="Title" ng-model="newPost.title"/>
+  <input placeholder="Body" ng-model="newPost.posts"/>
+  <input placeholder="Date" ng-model="newPost.entry_date"/>
+  <button ng-click="addPost(newPost)" type='button' name='button'> SUBMIT </button>
+</div>
+
+
+  <div ng-repeat="post in diary | filter: input">
+   
+    <center>
+      <h3>{{post.title}}</h3>
+      <h6>{{post.entry_date}}</h6>
+      <p>{{post.posts}}</p>
+      <img src="{{post.img_url}}" alt="" />
+      <!-- CAN ALSO DO <img ng-src="{{post.img_url}}"/> -->
+      <hr>
+
+    </center>
 
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="myCtrl.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
-  <script src="app.js"></script>
-  <script src="myCtrl.js"></script>
 
 </body>
 

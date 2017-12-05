@@ -1,5 +1,12 @@
 angular.module("app").controller("myCtrl", function($scope) {
   $scope.test = "this is a test"
+  $scope.diary = diary
+  $scope.addPost= function(blog){
+      $scope.diary.push(blog)
+        $scope.makeNewPost = false;
+        $scope.newPost= {}
+      console.log(blog)
+  }
 })
 
 let diary = [
